@@ -7,7 +7,7 @@ const {
     updateProduct,
     deleteProductById
 }=require('../controllers/product');
-
+const Auth=require('../middlewares/auth');
 
 // מוצרים
 router.get('/',getAllProducts);
@@ -18,6 +18,6 @@ router.patch('/:id',updateProduct);
 // נקודת קצה למחיקת  מוצר לפי קוד מוצר
 router.delete('/:id',deleteProductById);
 //הוספת מוצר חדש
-router.post('/',addProduct);
+router.post('/',Auth,addProduct);
 
 module.exports=router;
